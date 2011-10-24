@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gallery SYSTEM "GalML.dtd">
+<gallery name="Galerie d'exemple">
+	<file name="Le plus beau jour du monde">
+		<path>plusbeaujour.avi</path>
+		<mimetype>text/ascii</mimetype>
+		<size>5445</size>
+		<date>50 Janvier 2011</date>
+		<tags>
+			<tag name="video" />
+			<tag name="interessant" />
+			<tag name="super" />
+		</tags>
+	</file>
+	<file name="I prefer your clone">
+		<path>musics/iprefer.mp3</path>
+		<mimetype>audio/mpeg</mimetype>
+		<size>544554</size>
+		<date>12 Février 2031</date>
+		<tags>
+			<tag name="musique" />
+			<tag name="hadopi" />
+			<tag name="soupe horrible" />
+			<tag name="génial" />
+		</tags>
+	</file>
+	<file name="Ce beau fichier">
+		<path>sample.xml</path>
+		<mimetype>application/xml</mimetype>
+		<size>1452</size>
+		<date>23 Octobre 2011</date>
+		<tags>
+			<tag name="exemples" />
+			<tag name="génial" />
+		</tags>
+	</file>
+</gallery>

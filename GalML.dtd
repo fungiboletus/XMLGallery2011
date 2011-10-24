@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT gallery (file*) >
+<!ATTLIST gallery name CDATA #IMPLIED >
+
+<!ELEMENT file (path, mimetype, size, date, tags)>
+<!ATTLIST file name CDATA #REQUIRED >
+
+<!ELEMENT path (#PCDATA) >
+<!ELEMENT mimetype (#PCDATA) >
+<!ELEMENT size (#PCDATA) >
+<!ELEMENT date (#PCDATA) >
+
+<!ELEMENT tags (tag*) >
+<!ELEMENT tag EMPTY >
+<!ATTLIST tag name CDATA #REQUIRED >

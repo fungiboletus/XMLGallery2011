@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 
-echo '<?xml version="1.0" encoding="UTF-8"?>\n<gallery>\n'
+echo '<?xml version="1.0" encoding="UTF-8"?>\n<gallery name="'$2'">\n'
 
 for f in $1/**/* ; do
 
@@ -8,10 +8,12 @@ for f in $1/**/* ; do
 	
 	d=${f%/*}
 	d=${d// /+}
+	d=${d//\./}
 	n=${f##*/}
 
 	echo '\t<file name="'$n'">'
 	
+	echo "\t\t<path>"$f"</path>"
 	echo "\t\t<mimetype>"$(file --mime-type --brief "$f")"</mimetype>"
 	
 	echo "\t\t<size>"$(stat -c%s "$f")"</size>"

@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 
-echo '<?xml version="1.0" encoding="UTF-8"?>\n<gallery name="'$2'">\n'
+echo '<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="GalML.xsl"?>\n<!DOCTYPE gallery SYSTEM "GalML.dtd">\n<gallery name="'$2'">'
 
 for f in $1/**/* ; do
 

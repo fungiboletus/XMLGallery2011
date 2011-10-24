@@ -1,0 +1,127 @@
+body{
+font-family:"Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", "Lucida Sans", Verdana, sans-serif;
+background: url(img/fond_2.jpeg) repeat;
+color:black;
+margin:0;
+padding:0;
+}
+
+header {
+color:white;
+min-height:27px;
+background:#834319 url(img/fond_header.jpeg) repeat-x;
+}
+
+#title, #navigation {
+font-weight:bold;
+font-size:1em;
+margin:0.3em 1em 0.3em 0.4em;
+text-shadow: 0px 0px 3px #333;
+}
+
+#title {
+float:left;
+}
+ul.gallery {
+background:rgba(0,0,255,0.3);
+background:url(img/ombre.png) repeat-y right;
+font-size:0.62em;
+position:absolute;
+bottom:0;
+left:0;
+top:27px;
+margin:0;
+overflow:auto;
+overflow:hidden;
+list-style:none;
+padding:0;
+width:37em;
+}
+
+ul.gallery li.file
+{
+padding:1em 0em 1.5em 0em;
+margin:0;
+width:100%;
+float:left;
+}
+
+ul.gallery li.file:nth-child(2n+2) {
+background-image: linear-gradient(left , rgba(0,0,0,0.075) 0%, rgba(0,0,0,0.0) 100%);
+background-image: -o-linear-gradient(left , rgba(0,0,0,0.075) 0%, rgba(0,0,0,0.0) 100%);
+background-image: -moz-linear-gradient(left , rgba(0,0,0,0.075) 0%, rgba(0,0,0,0.0) 100%);
+background-image: -webkit-linear-gradient(left , rgba(0,0,0,0.075) 0%, rgba(0,0,0,0.0) 100%);
+background-image: -ms-linear-gradient(left , rgba(0,0,0,0.075) 0%, rgba(0,0,0,0.0) 100%);
+}
+
+ul.gallery li.file:hover {
+background:rgba(0,0,0,0.065);
+box-shadow:0px 0px 8px rgba(0,0,0,0.5);
+}
+
+ul.gallery li.file ul.tags {
+display:block;
+list-style:none;
+padding:0;
+}
+
+ul.gallery li.file ul.tags li.tag{
+display:block;
+float:left;
+padding:3px;
+}
+
+ul.gallery li.file img.icon {
+display:block;
+		margin-right:0.5em;
+		margin-left:0.5em;
+float:left;
+}
+
+ul.gallery strong
+{
+color:black;
+}
+
+ul.gallery p
+{
+margin:0.2em 0 0 2em;
+}
+
+ul.gallery h4
+{
+margin:0;
+font-size:1.1em;
+}
+
+ul.gallery li.file a,
+ul.gallery li.file a:visited,
+ul.gallery li.file a strong,
+ul.gallery li.file a:visited strong{
+color:#333;
+}
+
+ul.gallery li.selected_file {
+background:white;
+box-shadow:0px 0px 15px #555;
+margin-bottom:2em;
+}
+
+.mainview {
+background:white;
+position:absolute;
+bottom:0;
+left:28.675em;
+font-size:0.8em;
+top:27px;
+right:0;
+padding:0;
+z-index:10;
+}
+
+.mainview iframe#view {
+width:100%;
+height:100%;
+display:block;
+border:0;
+}

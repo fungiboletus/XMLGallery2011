@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="GalML.xsl"?>
 <!DOCTYPE gallery SYSTEM "GalML.dtd">
 <gallery name="Galerie d'exemple">
 	<file name="Le plus beau jour du monde">
 		<path>plusbeaujour.avi</path>
-		<mimetype>text/ascii</mimetype>
+		<mimetype>text/plain</mimetype>
 		<size>5445</size>
 		<date>50 Janvier 2011</date>
 		<tags>

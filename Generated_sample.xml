@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="GalML.xsl"?>
+<!DOCTYPE gallery SYSTEM "GalML.dtd">
 <gallery name="Miles Davis">
-
 	<file name="01 - Tutu.flac">
 		<path>Miles Davis/Tutu/01 - Tutu.flac</path>
 		<mimetype>audio/x-flac</mimetype>

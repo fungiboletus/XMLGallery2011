@@ -199,7 +199,6 @@ ScrollBar.prototype.clickButtonLess = function(e) {
 
 var clicOnTag = function(e) {
 
-	log(e);
 	var tag = e.target.firstChild.data;
 
 	if (tag.indexOf(" ") != -1) {
@@ -227,7 +226,6 @@ var submitSearch = function() {
 		keys[i] = keys[i].replace(/^"(.+)"$/g,'$1');
 	}
 
-	log(keys);
 
 	var gallery = byId('gallery');
 	var ul = gallery.getElementsByClassName('file');
@@ -264,9 +262,7 @@ var submitSearch = function() {
 	});
 
 	
-		log("canard");
 	for (var i = 0; i < l_ul; ++i) {
-		log(ul_arr[i]);
 		gallery.appendChild(ul_arr[i]);
 	}
 
@@ -276,9 +272,70 @@ var submitSearch = function() {
 	return false;
 };
 
+var n_file = -1;
+var ancienne_image = -1;
+
 var clicOnFile = function (e) {
-	byId('view').src = e.target.href;
+	var n;
+	for (n = e.target; n.nodeName != 'A'; n = n.parentNode) {
+		if (n.nodeName == 'UL') {
+			n = null;
+			break;
+		}
+	}
+
+	if (n!= undefined) {
+		//byId('view').src = n.href;
+		
+		var li = n.parentNode;
+
+		var ancien_n_file = n_file;
+		n_file = parseInt(li.id.slice(5));
+
+		if (ancien_n_file == n_file) { return false; }
+
+		window.location.hash = '#'+n_file;
+
+		var image_a = byId('mainview_image_'+ancienne_image);
+
+		var nouvelle_image = ancienne_image == 1 ? 2 : 1;
+		ancienne_image = nouvelle_image;
+		
+		var image_n = byId('mainview_image_'+nouvelle_image);
+
+		image_n.style.backgroundImage = 'url('+n.href+')';
+
+		if (image_a != null) image_a.className = "mainview_image";
+		image_n.className = "mainview_image affiche";
+	
+
+		var ul = li.parentNode.getElementsByClassName('file');
+		var l_ul = ul.length;
+		for (var i = 0; i < l_ul; ++i) {
+			ul[i].className = ul[i].className.replace(/selected_file/, '');
+		}
+		
+		li.className += ' selected_file ';
+	
+	}
+
 	return false;
+};
+
+var mClicOnImage = 0;
+
+var clicOnImage = function(e) {
+	var i = e.target;
+
+	var modes = ['cover', 'contain', '100% 100%', 'auto auto'];
+
+	if (++mClicOnImage == modes.length) mClicOnImage = 0;
+
+	var mode = modes[mClicOnImage];
+
+	var  images = document.getElementsByClassName('mainview_image');
+	images[0].style.backgroundSize = mode;
+	images[1].style.backgroundSize = mode;
 };
 
 var main = function() {
@@ -300,7 +357,6 @@ var main = function() {
 		a[i].onclick = clicOnFile;
 	}
 
-
 	var  tags = document.getElementsByClassName('tag');
 	var  l_tags = tags.length;
 
@@ -310,12 +366,27 @@ var main = function() {
 
 	byId('search').onsubmit = submitSearch;
 
+	submitSearch();
+	
+	var  images = document.getElementsByClassName('mainview_image');
+	images[0].onclick = clicOnImage;
+	images[1].onclick = clicOnImage;
+
+	if (window.location.hash.length > 1) {
+		var e = new Object();
+		e.target = byId('file_'+window.location.hash.slice(1)).getElementsByTagName('a')[0];
+
+		var obj = ScrollBar_instances['gallery'];
+		obj.scrollTop = (e.target.offsetTop > 30) ? e.target.offsetTop-30 : 0;
+		obj.scroll();
+		clicOnFile(e);
+	}
+
 	// Desactivate this function if it called two times
 	// the function can be called two time for callback with browsers
 	// that don't support html5 DomContentLoaded
 	main = noNo;
 	
-	submitSearch();
 };
 
 addEventFunction('DOMContentLoaded', window, function() { main() });

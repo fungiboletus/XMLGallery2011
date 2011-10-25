@@ -42,7 +42,15 @@
 			</ul>
 
 			<div class="mainview">
-				<iframe id="view" src="iframe.html"></iframe>
+				<div id="framemainview">
+					<iframe id="mainview_iframe" src="iframe.html" style="display:none;"></iframe>
+					<audio id="mainview_audio" controls="controls" style="display:none;">
+						<source src="#" type="canard" />
+					</audio>
+					<div id="mainview_image_1" class="mainview_image" ></div>
+					<div id="mainview_image_2" class="mainview_image" ></div>
+
+				</div>
 			</div>
 		</div>
 	</body>

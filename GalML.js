@@ -1,202 +1,3 @@
-var ScrollBar_instances = null;
-
-var ScrollBar = function(container, id) {
-
-	var firstScrollBar = ScrollBar_instances == null;
-
-	if (firstScrollBar) {
-		ScrollBar_instances = [];
-	}
-
-	ScrollBar_instances[container.id] = this;
-
-	this.container = container;
-
-	var scrollBar = newDom('div');
-	this.scrollBar = scrollBar;
-	
-	scrollBar.className = 'scrollbar';
-	scrollBar.id = id;
-
-	var buttonMore = newDom('div');
-	var buttonLess = newDom('div');
-	this.buttonMore = buttonMore;
-	this.buttonLess = buttonLess;
-
-	buttonMore.className = 'buttonMore';
-	buttonLess.className = 'buttonLess';
-	buttonMore.id = 'buttonMore_'+container.id;
-	buttonLess.id = 'buttonLess_'+container.id;
-
-	buttonMore.appendChild(document.createTextNode('+'));
-	buttonLess.appendChild(document.createTextNode('-'));
-
-	buttonMore.onclick = this.clickButtonMore;
-	buttonMore.onselectstart = noNo;
-	buttonLess.onclick = this.clickButtonLess;
-	buttonLess.onselectstart = noNo;
-
-	var body = byId('body');
-
-	body.appendChild(buttonMore);
-	body.appendChild(buttonLess);
-
-
-	body.appendChild(scrollBar);
-
-	this.scrollTop = 0;
-
-	try {
-	if (sessionStorage) {
-		var cache = sessionStorage[this.container.id+'_scroll'];
-
-		if (cache > 0) {
-			this.scrollTop = parseInt(cache);
-		}
-	}} catch(e) {}
-
-	this.setScrollBarHeight();
-	
-	if (this.container.addEventListener){
-		// Pour Firefox	
-		this.container.addEventListener('MozMousePixelScroll', this.mousewheel, false); 
-		this.container.addEventListener('mousewheel', this.mousewheel, false); 
-
-		if (firstScrollBar) {
-			window.addEventListener('resize',this.setScrollBarHeight,false);
-		}
-
-	// Pour ie…
-	} else if (this.container.attachEvent) {
-		this.container.attachEvent('onmousewheel', this.mousewheel); 
-		
-		if (firstScrollBar) {
-			window.attachEvent('onresize', this.setScrollBarHeight); 
-		}
-	}
-};
-
-ScrollBar.prototype.setScrollBarHeight = function() {
-
-	for (var key in ScrollBar_instances) {
-		var obj = ScrollBar_instances[key];
-
-		if (obj.container.offsetHeight >= obj.container.scrollHeight) {
-			obj.scrollBar.style.display = 'none';
-			obj.scrollBarHeight = null;
-
-			obj.buttonMore.style.display = 'none';
-			obj.buttonLess.style.display = 'none';
-		} else {
-
-			var h = Math.round((obj.container.offsetHeight * obj.container.offsetHeight) / obj.container.scrollHeight);
-
-			obj.scrollBar.style.height = h+'px';
-
-			// update position if necesarry
-			if (h != obj.scrollBarHeight) {
-				if (!obj.scrollBarHeight) {
-					obj.scrollBar.style.display = 'block';
-					obj.buttonMore.style.display = 'block';
-					obj.buttonLess.style.display = 'block';
-				}
-
-				var rapport = h/obj.scrollBarHeight;
-				var newPos = Math.round(obj.scrollBar.offsetTop*rapport);
-				obj.scrollBar.style.top = newPos+'px';
-				
-				obj.buttonMore.style.top = (obj.container.offsetHeight - obj.buttonMore.offsetHeight)+'px';
-				obj.buttonLess.style.top = obj.container.offsetTop+'px';
-
-				obj.buttonMore.style.left = obj.container.offsetLeft+obj.container.offsetWidth-obj.buttonMore.offsetWidth+'px';
-				obj.buttonLess.style.left = obj.buttonMore.style.left;
-			}
-			
-			obj.scrollBarHeight = h;
-
-			obj.scroll();
-		}
-	}
-}
-
-ScrollBar.prototype.scroll = function() {
-
-	// If scroll event when the scroll is useless
-	if (this.scrollBarHeight == null) return;
-
-	var max_scroll = this.container.scrollHeight-this.container.offsetHeight;
-	var margin = 5;
-
-	var hideMore = false;
-	var hideLess = false;
-
-	if (this.scrollTop <= margin) {
-		hideLess = true;
-		this.scrollTop = 0;
-	} else if (this.scrollTop > (max_scroll - margin)) {
-		hideMore = true;
-		this.scrollTop = max_scroll;
-	}
-	
-	try {
-	if (sessionStorage) {
-		sessionStorage[this.container.id+'_scroll'] = this.scrollTop;
-	}
-	} catch(e) {}
-
-	this.buttonMore.style.display = hideMore ? 'none' : 'block';
-	this.buttonLess.style.display = hideLess ? 'none' : 'block';
-
-	this.container.scrollTop = this.scrollTop;
-
-	var h = this.container.offsetHeight - this.scrollBar.offsetHeight;
-	var r = this.scrollTop/max_scroll;
-	var t = Math.round(r*h);
-
-	this.scrollBar.style.top = t+'px';
-}
-
-ScrollBar.prototype.mousewheel = function(e) {
-
-	// IE et les autres :-)
-	var dom = e.target ? e.target : e.srcElement;
-	var obj;
-
-	while (dom != null) {
-		if (dom.id && ScrollBar_instances[dom.id]) {
-			obj = ScrollBar_instances[dom.id];
-			break;
-		}
-		dom = dom.parentNode;
-	}
-
-	obj.scrollTop -= e.wheelDeltaY ? e.wheelDeltaY : -e.detail;
-
-	var max_scroll = obj.container.scrollHeight-obj.container.offsetHeight;
-	
-	if (obj.scrollTop < 0) {
-		obj.scrollTop = 0;
-	} else if (obj.scrollTop > max_scroll) {
-		obj.scrollTop = max_scroll;
-	}
-
-	obj.scroll();
-
-}
-
-ScrollBar.prototype.clickButtonMore = function(e) {
-	var obj = ScrollBar_instances[this.id.slice(11)];
-	obj.scrollTop += obj.container.offsetHeight - 100;
-	obj.scroll();
-}
-
-ScrollBar.prototype.clickButtonLess = function(e) {
-	var obj = ScrollBar_instances[this.id.slice(11)];
-	obj.scrollTop -= obj.container.offsetHeight - 100;
-	obj.scroll();
-}
-
-
 var clicOnTag = function(e) {
 
 	var tag = e.target.firstChild.data;
@@ -285,40 +86,84 @@ var clicOnFile = function (e) {
 	}
 
 	if (n!= undefined) {
-		//byId('view').src = n.href;
-		
-		var li = n.parentNode;
 
-		var ancien_n_file = n_file;
-		n_file = parseInt(li.id.slice(5));
-
-		if (ancien_n_file == n_file) { return false; }
-
-		window.location.hash = '#'+n_file;
-
-		var image_a = byId('mainview_image_'+ancienne_image);
-
-		var nouvelle_image = ancienne_image == 1 ? 2 : 1;
-		ancienne_image = nouvelle_image;
-		
-		var image_n = byId('mainview_image_'+nouvelle_image);
-
-		image_n.style.backgroundImage = 'url('+n.href+')';
-
-		if (image_a != null) image_a.className = "mainview_image";
-		image_n.className = "mainview_image affiche";
+		var mimetype = n.getElementsByClassName('icon')[0].alt;
 	
+		if (mimetype.indexOf('image/') == 0) {
+		
+			byId('mainview_iframe').style.display = 'none';
+			byId('mainview_audio').style.display = 'none';
+			byId('mainview_video').style.display = 'none';
+			byId('mainview_image_1').style.display = 'block';
+			byId('mainview_image_2').style.display = 'block';
 
-		var ul = li.parentNode.getElementsByClassName('file');
-		var l_ul = ul.length;
-		for (var i = 0; i < l_ul; ++i) {
-			ul[i].className = ul[i].className.replace(/selected_file/, '');
+			var li = n.parentNode;
+
+			var ancien_n_file = n_file;
+			n_file = parseInt(li.id.slice(5));
+
+			if (ancien_n_file == n_file) { return false; }
+
+			window.location.hash = '#'+n_file;
+
+			var image_a = byId('mainview_image_'+ancienne_image);
+
+			var nouvelle_image = ancienne_image == 1 ? 2 : 1;
+			ancienne_image = nouvelle_image;
+			
+			var image_n = byId('mainview_image_'+nouvelle_image);
+
+			image_n.style.backgroundImage = 'url('+n.href+')';
+
+			if (image_a != null) image_a.className = "mainview_image";
+			image_n.className = "mainview_image affiche";
+		
+
+			var ul = li.parentNode.getElementsByClassName('file');
+			var l_ul = ul.length;
+			for (var i = 0; i < l_ul; ++i) {
+				ul[i].className = ul[i].className.replace(/selected_file/, '');
+			}
+			
+			li.className += ' selected_file ';
+	
 		}
-		
-		li.className += ' selected_file ';
-	
-	}
 
+		else if (mimetype.indexOf('audio/') == 0) {
+			byId('mainview_iframe').style.display = 'none';
+			byId('mainview_audio').style.display = 'block';
+			byId('mainview_video').style.display = 'none';
+			byId('mainview_image_1').style.display = 'none';
+			byId('mainview_image_2').style.display = 'none';
+	
+			var source = byId('mainview_audio').getElementsByTagName('source')[0];
+			source.src = n.href;
+
+			source.type = mimetype;
+		}		
+		else if (mimetype.indexOf('video/') == 0) {
+			byId('mainview_iframe').style.display = 'none';
+			byId('mainview_audio').style.display = 'none';
+			byId('mainview_video').style.display = 'block';
+			byId('mainview_image_1').style.display = 'none';
+			byId('mainview_image_2').style.display = 'none';
+	
+			var source = byId('mainview_video').getElementsByTagName('source')[0];
+			source.src = n.href;
+
+			source.type = mimetype;
+				
+		} else {
+			byId('mainview_iframe').style.display = 'block';
+			byId('mainview_audio').style.display = 'none';
+			byId('mainview_video').style.display = 'none';
+			byId('mainview_image_1').style.display = 'none';
+			byId('mainview_image_2').style.display = 'none';
+		
+			byId('mainview_iframe').src = n.href;
+		}
+
+	}
 	return false;
 };
 
@@ -336,6 +181,30 @@ var clicOnImage = function(e) {
 	var  images = document.getElementsByClassName('mainview_image');
 	images[0].style.backgroundSize = mode;
 	images[1].style.backgroundSize = mode;
+};
+
+var simulerClicOnFile = function (id) {
+	var e = new Object();
+	e.target = byId('file_'+id).getElementsByTagName('a')[0];
+
+	var obj = ScrollBar_instances['gallery'];
+	obj.scrollTop = (e.target.offsetTop > 30) ? e.target.offsetTop-30 : 0;
+	obj.scroll();
+	clicOnFile(e);
+};
+
+var file_id = 1;
+
+var clicOnPrevious = function () {
+	if (--file_id == 0) file_id = document.getElementsByClassName('file').length;
+
+	simulerClicOnFile(file_id);
+};
+
+var clicOnNext = function () {
+	if (file_id++ == document.getElementsByClassName('file').length) file_id = 1;
+
+	simulerClicOnFile(file_id);
 };
 
 var main = function() {
@@ -372,15 +241,12 @@ var main = function() {
 	images[0].onclick = clicOnImage;
 	images[1].onclick = clicOnImage;
 
-	if (window.location.hash.length > 1) {
-		var e = new Object();
-		e.target = byId('file_'+window.location.hash.slice(1)).getElementsByTagName('a')[0];
+	file_id = window.location.hash.length > 1 ? window.location.hash.slice(1) : 1;
 
-		var obj = ScrollBar_instances['gallery'];
-		obj.scrollTop = (e.target.offsetTop > 30) ? e.target.offsetTop-30 : 0;
-		obj.scroll();
-		clicOnFile(e);
-	}
+	simulerClicOnFile(file_id);
+
+	byId('button_previous').onclick = clicOnPrevious;
+	byId('button_next').onclick = clicOnNext;
 
 	// Desactivate this function if it called two times
 	// the function can be called two time for callback with browsers

@@ -7,7 +7,10 @@
 		<title><xsl:value-of select="@name"/> - XMLGallery2011</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<link rel="stylesheet" type="text/css" href="GalML_style.css" />
+		<link rel="alternate stylesheet" title="Sombre" href="sombre.css" />
+		<link rel="alternate stylesheet" title="Rouge" href="red.css" />
 		<script type="text/javascript" src="commun.js"></script>
+		<script type="text/javascript" src="scrollbar.js"></script>
 		<script type="text/javascript" src="GalML.js"></script>
 	</head>
 	<body>		
@@ -26,7 +29,7 @@
 			<xsl:for-each select="file">
 				<li class="file" id="file_{position()}">
 					<a href="{path}">
-						<img class="icon" src="mimes/{translate(mimetype,'/','-')}.png" />
+						<xsl:if test="mimetype"><img class="icon" alt="{mimetype}" src="mimes/{translate(mimetype,'/','-')}.png" /></xsl:if>
 						<h4 class="name"><xsl:value-of select="@name"/></h4>
 						<p class="size"><xsl:value-of select="size"/></p>
 						<p class="date"><xsl:value-of select="date"/></p>
@@ -43,13 +46,18 @@
 
 			<div class="mainview">
 				<div id="framemainview">
-					<iframe id="mainview_iframe" src="iframe.html" style="display:none;"></iframe>
-					<audio id="mainview_audio" controls="controls" style="display:none;">
+					<iframe id="mainview_iframe" src="iframe.html"></iframe>
+					<audio id="mainview_audio" controls="controls">
 						<source src="#" type="canard" />
 					</audio>
+					<video id="mainview_video" controls="controls">
+						<source src="#" type="canard" />
+					</video>
 					<div id="mainview_image_1" class="mainview_image" ></div>
 					<div id="mainview_image_2" class="mainview_image" ></div>
 
+					<div class="button" id="button_previous">←</div>
+					<div class="button" id="button_next">→</div>
 				</div>
 			</div>
 		</div>

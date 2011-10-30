@@ -113,7 +113,7 @@ var clicOnFile = function (e) {
 			
 			var image_n = byId('mainview_image_'+nouvelle_image);
 
-			image_n.style.backgroundImage = 'url('+n.href+')';
+			image_n.style.backgroundImage = 'url("'+n.href.replace('"', '\\"')+'")';
 
 			if (image_a != null) image_a.className = "mainview_image";
 			image_n.className = "mainview_image affiche";

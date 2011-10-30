@@ -29,7 +29,10 @@
 			<xsl:for-each select="file">
 				<li class="file" id="file_{position()}">
 					<a href="{path}">
-						<xsl:if test="mimetype"><img class="icon" alt="{mimetype}" src="mimes/{translate(mimetype,'/','-')}.png" /></xsl:if>
+						<xsl:choose>
+						<xsl:when test="icon"><img class="icon {icon/@type}" alt="{icon}" src="icons/{translate(icon,'/','-')}.png" /></xsl:when>
+						<xsl:otherwise><img class="icon" alt="" src="icons/unknown.png"/></xsl:otherwise>
+						</xsl:choose>
 						<h4 class="name"><xsl:value-of select="@name"/></h4>
 						<p class="size"><xsl:value-of select="size"/></p>
 						<p class="date"><xsl:value-of select="date"/></p>

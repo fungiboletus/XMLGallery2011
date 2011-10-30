@@ -109,6 +109,13 @@ display:block;
 float:left;
 }
 
+ul.gallery li.file img.icon.thumbnail {
+border:2px solid white;
+	   margin-top:8px;
+box-shadow:0px 0px 4px rgba(0,0,0,0.35);
+padding:0;
+}
+
 ul.gallery strong
 {
 color:black;
@@ -117,6 +124,7 @@ color:black;
 ul.gallery p
 {
 margin:0.2em 0 0 2em;
+	   padding-left:65px;
 }
 
 ul.gallery h4
@@ -126,7 +134,7 @@ font-size:1.1em;
 text-shadow:0px 0px 2px rgba(0,0,0,0.3);
 word-wrap:break-word;
 width:26em;
-padding-left:75px;
+padding-left:80px;
 }
 
 ul.gallery li.file a,
@@ -136,8 +144,8 @@ ul.gallery li.file a:visited strong{
 color:#333;
 }
 
-ul.gallery li.selected_file {
-background:white;
+ul.gallery li.selected_file, ul.gallery li.selected_file:nth-child(2n+2) {
+background:white url(img/degrade.png) repeat-x bottom;
 box-shadow:0px 0px 15px #555;
 -moz-transition-property: background-color;
 -moz-transition-duration: 1s;
@@ -148,7 +156,7 @@ transition-duration: 1s;
 }
 
 ul.gallery li.selected_file:hover {
-background:white;
+background:white url(img/degrade.png) repeat-x bottom;
 box-shadow:0px 0px 15px #555;
 }
 

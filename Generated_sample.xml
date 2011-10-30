@@ -4,7 +4,7 @@
 <gallery name="Miles Davis">
 	<file name="01 - Tutu.flac">
 		<path>Miles Davis/Tutu/01 - Tutu.flac</path>
-		<mimetype>audio/x-flac</mimetype>
+		<icon>audio/x-flac</icon>
 		<size>32039431</size>
 		<date>2011-02-12 11:34:24.000000000 +0100</date>
 		<tags>
@@ -14,7 +14,7 @@
 	</file>
 	<file name="02 - Tomaas.flac">
 		<path>Miles Davis/Tutu/02 - Tomaas.flac</path>
-		<mimetype>audio/x-flac</mimetype>
+		<icon>audio/x-flac</icon>
 		<size>36269960</size>
 		<date>2011-02-12 11:34:26.000000000 +0100</date>
 		<tags>
@@ -24,7 +24,7 @@
 	</file>
 	<file name="03 - Portia.flac">
 		<path>Miles Davis/Tutu/03 - Portia.flac</path>
-		<mimetype>audio/x-flac</mimetype>
+		<icon>audio/x-flac</icon>
 		<size>38243039</size>
 		<date>2011-02-12 11:34:28.000000000 +0100</date>
 		<tags>
@@ -34,7 +34,7 @@
 	</file>
 	<file name="04 - Splatch.flac">
 		<path>Miles Davis/Tutu/04 - Splatch.flac</path>
-		<mimetype>audio/x-flac</mimetype>
+		<icon>audio/x-flac</icon>
 		<size>29909271</size>
 		<date>2011-02-12 11:34:28.000000000 +0100</date>
 		<tags>
@@ -44,7 +44,7 @@
 	</file>
 	<file name="05 - Backyard Ritual.flac">
 		<path>Miles Davis/Tutu/05 - Backyard Ritual.flac</path>
-		<mimetype>audio/x-flac</mimetype>
+		<icon>audio/x-flac</icon>
 		<size>30146030</size>
 		<date>2011-02-12 11:34:30.000000000 +0100</date>
 		<tags>
@@ -54,7 +54,7 @@
 	</file>
 	<file name="06 - Perfect Way.flac">
 		<path>Miles Davis/Tutu/06 - Perfect Way.flac</path>
-		<mimetype>audio/x-flac</mimetype>
+		<icon>audio/x-flac</icon>
 		<size>28659460</size>
 		<date>2011-02-12 11:34:32.000000000 +0100</date>
 		<tags>
@@ -64,7 +64,7 @@
 	</file>
 	<file name="07 - Don't Lose Your Mind.flac">
 		<path>Miles Davis/Tutu/07 - Don't Lose Your Mind.flac</path>
-		<mimetype>audio/x-flac</mimetype>
+		<icon>audio/x-flac</icon>
 		<size>35209242</size>
 		<date>2011-02-12 11:34:32.000000000 +0100</date>
 		<tags>
@@ -74,7 +74,7 @@
 	</file>
 	<file name="08 - Full Nelson.flac">
 		<path>Miles Davis/Tutu/08 - Full Nelson.flac</path>
-		<mimetype>audio/x-flac</mimetype>
+		<icon>audio/x-flac</icon>
 		<size>28654450</size>
 		<date>2011-02-12 11:34:34.000000000 +0100</date>
 		<tags>
@@ -84,7 +84,7 @@
 	</file>
 	<file name="01 Jean Pierre.flac">
 		<path>Miles Davis/We Want Miles/Disc 1/01 Jean Pierre.flac</path>
-		<mimetype>audio/x-flac</mimetype>
+		<icon>audio/x-flac</icon>
 		<size>75587047</size>
 		<date>2010-04-01 01:00:09.000000000 +0200</date>
 		<tags>
@@ -95,7 +95,7 @@
 	</file>
 	<file name="02 Back Seat Betty.flac">
 		<path>Miles Davis/We Want Miles/Disc 1/02 Back Seat Betty.flac</path>
-		<mimetype>audio/x-flac</mimetype>
+		<icon>audio/x-flac</icon>
 		<size>59033521</size>
 		<date>2010-04-01 00:47:21.000000000 +0200</date>
 		<tags>
@@ -106,7 +106,7 @@
 	</file>
 	<file name="03 Fast Track.flac">
 		<path>Miles Davis/We Want Miles/Disc 1/03 Fast Track.flac</path>
-		<mimetype>audio/x-flac</mimetype>
+		<icon>audio/x-flac</icon>
 		<size>111104805</size>
 		<date>2010-04-01 01:00:40.000000000 +0200</date>
 		<tags>
@@ -117,7 +117,7 @@
 	</file>
 	<file name="04 Jean Pierre.flac">
 		<path>Miles Davis/We Want Miles/Disc 1/04 Jean Pierre.flac</path>
-		<mimetype>audio/x-flac</mimetype>
+		<icon>audio/x-flac</icon>
 		<size>26776982</size>
 		<date>2010-03-31 23:03:28.000000000 +0200</date>
 		<tags>
@@ -128,7 +128,7 @@
 	</file>
 	<file name="05 Ursula.flac">
 		<path>Miles Davis/We Want Miles/Disc 1/05 Ursula.flac</path>
-		<mimetype>audio/x-flac</mimetype>
+		<icon>audio/x-flac</icon>
 		<size>13011665</size>
 		<date>2010-03-31 23:28:23.000000000 +0200</date>
 		<tags>
@@ -139,7 +139,7 @@
 	</file>
 	<file name="06 Aida.flac">
 		<path>Miles Davis/We Want Miles/Disc 1/06 Aida.flac</path>
-		<mimetype>audio/x-flac</mimetype>
+		<icon>audio/x-flac</icon>
 		<size>84236624</size>
 		<date>2010-03-31 21:19:56.000000000 +0200</date>
 		<tags>
@@ -150,7 +150,7 @@
 	</file>
 	<file name="Folder.jpg">
 		<path>Miles Davis/We Want Miles/Disc 1/Folder.jpg</path>
-		<mimetype>image/jpeg</mimetype>
+		<icon>image/jpeg</icon>
 		<size>237259</size>
 		<date>2010-03-31 14:48:00.000000000 +0200</date>
 		<tags>
@@ -161,7 +161,7 @@
 	</file>
 	<file name="We Want Miles (Disc 1).cue">
 		<path>Miles Davis/We Want Miles/Disc 1/We Want Miles (Disc 1).cue</path>
-		<mimetype>text/plain</mimetype>
+		<icon>text/plain</icon>
 		<size>799</size>
 		<date>2010-03-31 21:11:10.000000000 +0200</date>
 		<tags>
@@ -172,7 +172,7 @@
 	</file>
 	<file name="We Want Miles (Disc 1).log">
 		<path>Miles Davis/We Want Miles/Disc 1/We Want Miles (Disc 1).log</path>
-		<mimetype>text/plain</mimetype>
+		<icon>text/plain</icon>
 		<size>6033</size>
 		<date>2010-03-31 21:11:10.000000000 +0200</date>
 		<tags>
@@ -183,7 +183,7 @@
 	</file>
 	<file name="01 My Man's Gone Now.flac">
 		<path>Miles Davis/We Want Miles/Disc 2/01 My Man's Gone Now.flac</path>
-		<mimetype>audio/x-flac</mimetype>
+		<icon>audio/x-flac</icon>
 		<size>144628204</size>
 		<date>2010-03-31 23:38:17.000000000 +0200</date>
 		<tags>
@@ -194,7 +194,7 @@
 	</file>
 	<file name="02 Kix.flac">
 		<path>Miles Davis/We Want Miles/Disc 2/02 Kix.flac</path>
-		<mimetype>audio/x-flac</mimetype>
+		<icon>audio/x-flac</icon>
 		<size>139452101</size>
 		<date>2010-04-01 00:59:13.000000000 +0200</date>
 		<tags>
@@ -205,7 +205,7 @@
 	</file>
 	<file name="03 Fat Time.flac">
 		<path>Miles Davis/We Want Miles/Disc 2/03 Fat Time.flac</path>
-		<mimetype>audio/x-flac</mimetype>
+		<icon>audio/x-flac</icon>
 		<size>87146434</size>
 		<date>2010-04-01 00:55:16.000000000 +0200</date>
 		<tags>
@@ -216,7 +216,7 @@
 	</file>
 	<file name="Folder.jpg">
 		<path>Miles Davis/We Want Miles/Disc 2/Folder.jpg</path>
-		<mimetype>image/jpeg</mimetype>
+		<icon>image/jpeg</icon>
 		<size>237259</size>
 		<date>2010-03-31 14:48:00.000000000 +0200</date>
 		<tags>
@@ -227,7 +227,7 @@
 	</file>
 	<file name="We Want Miles (Disc 2).cue">
 		<path>Miles Davis/We Want Miles/Disc 2/We Want Miles (Disc 2).cue</path>
-		<mimetype>text/plain</mimetype>
+		<icon>text/plain</icon>
 		<size>437</size>
 		<date>2010-03-31 22:15:51.000000000 +0200</date>
 		<tags>
@@ -238,7 +238,7 @@
 	</file>
 	<file name="We Want Miles (Disc 2).log">
 		<path>Miles Davis/We Want Miles/Disc 2/We Want Miles (Disc 2).log</path>
-		<mimetype>text/plain</mimetype>
+		<icon>text/plain</icon>
 		<size>3361</size>
 		<date>2010-03-31 22:15:51.000000000 +0200</date>
 		<tags>

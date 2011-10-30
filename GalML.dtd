@@ -2,11 +2,12 @@
 <!ELEMENT gallery (file*) >
 <!ATTLIST gallery name CDATA #IMPLIED >
 
-<!ELEMENT file (path, mimetype?, size, date, tags)>
+<!ELEMENT file (path, icon?, size, date, tags)>
 <!ATTLIST file name CDATA #REQUIRED >
 
 <!ELEMENT path (#PCDATA) >
-<!ELEMENT mimetype (#PCDATA) >
+<!ELEMENT icon (#PCDATA) >
+<!ATTLIST icon type CDATA #IMPLIED >
 <!ELEMENT size (#PCDATA) >
 <!ELEMENT date (#PCDATA) >
 

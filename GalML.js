@@ -89,7 +89,7 @@ var clicOnFile = function (e) {
 
 		var mimetype = n.getElementsByClassName('icon')[0].alt;
 	
-		if (mimetype.indexOf('image/') == 0) {
+		if (mimetype.indexOf('/') == -1 || mimetype.indexOf('image/') == 0) {
 		
 			byId('mainview_iframe').style.display = 'none';
 			byId('mainview_audio').style.display = 'none';
